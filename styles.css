@@ -49,24 +49,88 @@ table {
 :root{
     --font-primary: "LINE Seed JP", sans-serif; 
     --font-secondary: "Pangolin", sans-serif;
+    --text-color: #1E1717;
 }
 
 body{
+    font-family: var(--font-primary);
+}
+
+header, main, footer{
     padding: 1rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: pink;
+}
+
+header a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+main{
+    background-color: #fff2dc;
+    padding: 900px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 205px 0px;
 }
 
 h1, h2, p{
     font-family: var(--font-primary);
 }
+
 h1{
     font-size: 1rem;
 }
-header{
-    display: flex;
-    justify-content: space-between;
+
+footer{
+    padding: 10px;
+    background-color: pink;
 }
 
+footer img {
+    width: auto;
+    height: 50px;
+}
 nav ul{
     display: flex;
     gap: 1rem;
+}
+
+#sticky, #startBtn{
+    background: none;
+    border: none;
+    border-radius: 10px;
+}
+
+#sticky img, #startBtn img{
+    cursor: pointer;
+}
+
+#startBtn img{
+    width: auto;
+    height: 150px;
+}
+
+#mode{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+
+
+#sticky{
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }

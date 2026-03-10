@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <h1>tomate.lol</h1>
+        <h1><a href="#index.html">tomate.lol</a></h1>
         <nav>
             <ul>
                 <li><a href="about.html">about</a></li>
@@ -30,12 +30,25 @@
         <p id="mode">lets focus!</p>
 
         <!-- timer -->
-         <h2 id="timer">25:00</h2>
+         <h2 id="timer" hidden>25:00</h2>
 
-        <button id="startBtn">start</button>
-        <button id="sticky"></button>
+        <button id="startBtn">
+            <img src="images/tomato-button-design.svg" alt="tomato start button">
+        </button>
 
-        <div id="buttons">
+        <button id="sticky">
+            <img src="images/sticky note icon.svg" alt="sticky note button">
+        </button>
+        
+        <div class="stickyNote" hidden>
+            <div class="stickyHeader" id="dragHandle">
+                Sticky Note
+                <button class="closeBtn" id="closeBtn">✕</button>
+            </div>
+            <textarea placeholder="type here!"></textarea>
+        </div>
+
+        <div id="timerBtns" hidden>
             <button>start</button>
             <button>pause</button>
             <button>redo</button>
