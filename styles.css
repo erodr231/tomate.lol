@@ -49,11 +49,19 @@ table {
 :root{
     --font-primary: "LINE Seed JP", sans-serif; 
     --font-secondary: "Pangolin", sans-serif;
-    --text-color: #1E1717;
+    --text-color: #3A4F41;
+    --focus-color: #2b3c31;
+
+    --footer-color: #8DBB8B;
+    --main-color: #8DBB8B;
+    --header-color: #8DBB8B;
 }
 
 body{
     font-family: var(--font-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header, main, footer{
@@ -63,7 +71,7 @@ header, main, footer{
 header{
     display: flex;
     justify-content: space-between;
-    background-color: pink;
+    background-color: var(--header-color);
 }
 
 header a{
@@ -72,12 +80,13 @@ header a{
 }
 
 main{
-    background-color: #fff2dc;
-    padding: 900px 0px;
+    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 205px 0px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 h1, h2, p{
@@ -90,7 +99,7 @@ h1{
 
 footer{
     padding: 10px;
-    background-color: pink;
+    background-color: var(--footer-color);
 }
 
 footer img {
@@ -120,13 +129,17 @@ nav ul{
 #mode{
     font-size: 5rem;
     font-weight: bold;
+    color: var(--focus-color);
 }
-
-
 
 #sticky{
     display: flex;
-    justify-content: flex-end;
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.mainDisplay{
+    margin-top: auto;
 }
 
 footer{
@@ -134,3 +147,4 @@ footer{
     justify-content: center;
     gap: 30px;
 }
+
