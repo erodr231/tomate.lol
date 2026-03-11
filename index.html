@@ -31,14 +31,22 @@
             <p id="mode">lets focus!</p>
             <h2 id="timer" >25:00</h2>
 
-            <button id="startBtn">
+            <button id="startBtn" hidden>
                 <img src="images/tomato-button-design.svg" alt="tomato start button">
             </button>
 
             <div id="timerBtns" >
-                <button>start</button>
-                <button>pause</button>
-                <button>redo</button>
+                <button>
+                    <img src="images/settingsButton.svg" alt="settings button">
+                </button>
+                
+                <button>
+                    <img src="images/pauseButton.svg" alt="pause button">
+                </button>
+                
+                <button>
+                    <img src="images/restartButton.svg">
+                </button>
             </div>
         </div>
 
@@ -48,9 +56,9 @@
         </button>
         
         <!-- sticky note text area -->
-        <div class="stickyNote" hidden>
+        <div class="stickyNote" >
             <div class="stickyHeader" id="dragHandle">
-                Sticky Note
+                notepad
                 <button class="closeBtn" id="closeBtn">✕</button>
             </div>
             <textarea placeholder="type here!"></textarea>
