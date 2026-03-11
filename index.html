@@ -29,13 +29,13 @@
         <!-- center content -->
         <div class="timerDisplay">
             <p id="mode">lets focus!</p>
-            <h2 id="timer" >25:00</h2>
+            <h2 id="timer" hidden >25:00</h2>
 
-            <button id="startBtn" hidden>
+            <button id="startBtn">
                 <img src="images/tomato-button-design.svg" alt="tomato start button">
             </button>
 
-            <div id="timerBtns" >
+            <div id="timerBtns" hidden>
                 <button>
                     <img src="images/settingsButton.svg" alt="settings button">
                 </button>
@@ -56,8 +56,8 @@
         </button>
         
         <!-- sticky note text area -->
-        <div class="stickyNote">
-            <div class="stickyHeader" id="dragHandle">
+        <div class="stickyNote" hidden>
+            <div class="stickyHeader" id="dragHandle" hidden>
                 notepad
                 <button class="closeBtn" id="closeBtn">✕</button>
             </div>

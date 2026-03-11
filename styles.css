@@ -99,6 +99,8 @@ nav ul{
 }
 
 /* === MAIN === */
+
+
 main{
     position: relative;
     background-color: var(--main-color);
@@ -143,6 +145,7 @@ main{
     font-size: 7rem;
     font-weight: 800;
     color: var(--text-color);
+    padding: 20px 10px;
 }
 
 #timerBtns button{
@@ -169,6 +172,9 @@ main{
     padding: 10px 5px;
 }
 
+.stickyNote[hidden]{
+    display: none;
+}
 textarea{
     font-family: var(--font-primary);
     padding: 10px;
@@ -198,7 +204,6 @@ footer img {
     width: auto;
     height: 40px;
 }
-
 
 
 
