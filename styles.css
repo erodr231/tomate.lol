@@ -51,8 +51,8 @@ table {
     --font-primary: "LINE Seed JP", sans-serif; 
     --font-secondary: "Pangolin", sans-serif;
     
-    --text-color: #2b3c31;
-    --dark-green-svg: #2b3c31;
+    --text-color: #223027;
+    
 
     /* TESTING COLOR PALLETTE */
     --footer-color: #8DBB8B;
@@ -117,9 +117,9 @@ main{
 }
 
 #mode{
-    font-size: 5rem;
-    font-weight: bold;
-    color: black;
+    font-size: 3rem;
+    font-weight: 200;
+    color: var(--text-color);
 }
 
 #sticky, #startBtn{
@@ -135,6 +135,17 @@ main{
 #startBtn img{
     width: auto;
     height: 150px;
+}
+
+/* === TIMER  === */
+#timer {
+    font-size: 7rem;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+#timerBtns button{
+    padding: 1rem;
 }
 
 /* === STICKY NOTE BUTTON === */
