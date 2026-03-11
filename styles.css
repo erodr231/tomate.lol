@@ -50,8 +50,9 @@ table {
 :root{
     --font-primary: "LINE Seed JP", sans-serif; 
     --font-secondary: "Pangolin", sans-serif;
-    --text-color: #3A4F41;
-    --focus-color: #2b3c31;
+    
+    --text-color: #2b3c31;
+    --dark-green-svg: #2b3c31;
 
     /* TESTING COLOR PALLETTE */
     --footer-color: #8DBB8B;
@@ -98,6 +99,7 @@ nav ul{
 
 /* === MAIN === */
 main{
+    /* position: relative; */
     background-color: var(--main-color);
     display: flex;
     flex-direction: column;
@@ -111,12 +113,13 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #mode{
     font-size: 5rem;
     font-weight: bold;
-    color: var(--focus-color);
+    color: black;
 }
 
 #sticky, #startBtn{
@@ -134,16 +137,12 @@ main{
     height: 150px;
 }
 
-
 /* === STICKY NOTE BUTTON === */
 #sticky{
-    display: flex;
-    margin-top: auto;
-    align-self: flex-end;
+    position: relative;
+    top: 10rem;
+    left: 40rem;
 }
-
-
-
 
 /* === FOOTER === */
 footer{
@@ -156,7 +155,7 @@ footer{
 
 footer img {
     width: auto;
-    height: 50px;
+    height: 40px;
 }
 
 
