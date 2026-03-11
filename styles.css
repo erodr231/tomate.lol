@@ -100,6 +100,7 @@ nav ul{
 
 /* === MAIN === */
 main{
+    position: relative;
     background-color: var(--main-color);
     display: flex;
     flex-direction: column;
@@ -146,14 +147,13 @@ main{
 
 #timerBtns button{
     padding: 1rem;
-    border-radius: ;
 }
 
 /* === STICKY NOTE BUTTON === */
 #sticky{
     position: absolute;
-    bottom: 10rem;
-    left: 75rem;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .stickyNote {
