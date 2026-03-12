@@ -99,8 +99,6 @@ nav ul{
 }
 
 /* === MAIN === */
-
-
 main{
     position: relative;
     background-color: var(--main-color);
@@ -140,6 +138,7 @@ main{
     height: 150px;
 }
 
+
 /* === TIMER  === */
 #timer {
     font-size: 7rem;
@@ -175,6 +174,7 @@ main{
 .stickyNote[hidden]{
     display: none;
 }
+
 textarea{
     font-family: var(--font-primary);
     padding: 10px;
@@ -208,6 +208,33 @@ footer img {
 
 
 
+/* === ABOUT === */
+.abtContainer {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    text-align: left;   
+    gap: 1rem;
+    padding: 0px 15rem;
+}
+
+.abtContainer h1{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.abtSection h2{
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 10px 0px;
+}
+
+.abtSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 750px;
+}
 
 
 
