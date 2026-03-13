@@ -40,14 +40,23 @@ function tick(){
 }
 
 function toggleTimer(){ // function to toggle resume/pause timer
-    console.log("toggle")
+    let pauseImg = pauseBtn.querySelector('img');
+
     if (isPaused){ 
-        //resume
+        // switch icons
+        pauseImg.src = 'images/pauseButton.svg';
+        
+        //resume 
         timerInterval = setInterval(tick, 1000);
         isPaused = false;
+        console.log("I am resuming")
     } else {
+        // switch icons
+        pauseImg.src = 'images/resume-button.svg';
+
         clearInterval(timerInterval);
         isPaused = true;
+        console.log("I am paused")
     }
 } 
 
