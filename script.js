@@ -13,6 +13,7 @@ const pauseBtn = document.getElementById("pauseBtn");
 const restartBtn = document.getElementById("restartBtn");
 const stickyBtn = document.getElementById("sticky");
 const stickyTextArea = document.querySelector('.stickyNote');
+const stickyClose = document.getElementById("closeBtn");
 
 //timer elements
 let isPaused = false;
@@ -76,7 +77,7 @@ function restartTimer(){ // restart entire timer to 25:00 or to the user's input
 }
 
 function showSticky(){
-    stickyTextArea.toggleAttribute("hidden");
+    stickyTextArea.toggleAttribute("hidden"); // toggle hides the notepad
 }
 
 // EVENT LISTENERS
@@ -84,3 +85,4 @@ startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
 restartBtn.addEventListener("click", restartTimer);
 stickyBtn.addEventListener("click", showSticky);
+stickyClose.addEventListener("click", showSticky)
