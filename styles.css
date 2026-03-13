@@ -121,7 +121,7 @@ main{
     font-size: 5rem;
     font-weight: bold;
     color: var(--text-color);
-    transition: font-size 1s cubic-bezier(1, 0, 0, 1.01), font-weight 1s ease;
+    transition: font-size 1s cubic-bezier(1, 0, 0, 1.01), font-weight 2s ease;
 }
 /* START BUTTON TRANSITION */
 #mode.shrink{
@@ -153,10 +153,6 @@ main{
     color: var(--text-color);
     padding: 20px 10px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-#timer.transition{
-
 }
 
 #timerBtns button{

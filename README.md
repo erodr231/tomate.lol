@@ -21,5 +21,5 @@ The Pomodoro Technique is a time management tool created by Francesco Cirillo in
 
 ## Getting Started
 
-No setup needed! Just open `index.html` in your browser or visit [tomate.lol](https://erodr231.github.io/tomate.lol/).
+No setup needed! Just visit [tomate.lol](https://erodr231.github.io/tomate.lol/).
 

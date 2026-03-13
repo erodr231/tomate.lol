@@ -11,6 +11,8 @@ const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const restartBtn = document.getElementById("restartBtn");
+const stickyBtn = document.getElementById("sticky");
+const stickyTextArea = document.querySelector('.stickyNote');
 
 //timer elements
 let isPaused = false;
@@ -60,6 +62,25 @@ function toggleTimer(){ // function to toggle resume/pause timer
     }
 } 
 
+function restartTimer(){ // restart entire timer to 25:00 or to the user's input 
+    clearInterval(timerInterval); // clear
+
+    minutes = 25;
+    seconds = 0;
+    
+    timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`;
+    // timerInterval = setInterval(tick, 1000);
+    
+    isPaused = true;
+    pauseBtn.querySelector('img').src = 'images/resume-button.svg';
+}
+
+function showSticky(){
+    stickyTextArea.toggleAttribute("hidden");
+}
+
 // EVENT LISTENERS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
+restartBtn.addEventListener("click", restartTimer);
+stickyBtn.addEventListener("click", showSticky);
