@@ -121,7 +121,7 @@ main{
     font-size: 5rem;
     font-weight: bold;
     color: var(--text-color);
-    transition: font-size 1s cubic-bezier(1, 0, 0, 1.01), font-weight 0.3s ease;
+    transition: font-size 1s cubic-bezier(1, 0, 0, 1.01), font-weight 1s ease;
 }
 /* START BUTTON TRANSITION */
 #mode.shrink{
@@ -147,11 +147,16 @@ main{
 
 
 /* === TIMER  === */
-#timer {
+#timer{
     font-size: 7rem;
     font-weight: 800;
     color: var(--text-color);
     padding: 20px 10px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#timer.transition{
+
 }
 
 #timerBtns button{
@@ -240,6 +245,9 @@ footer img {
     max-width: 750px;
 }
 
+.abtSection p{
+    line-height: 20px;
+}
 
 
 
