@@ -64,6 +64,7 @@ function toggleTimer(){ // function to toggle resume/pause timer
 } 
 
 function restartTimer(){ // restart entire timer to 25:00 or to the user's input 
+    console.log("restart");
     clearInterval(timerInterval); // clear
 
     minutes = 25;
