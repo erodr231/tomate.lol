@@ -179,7 +179,8 @@ main{
     justify-content: space-between;
     padding: 10px 5px;
     font-size: 1.2rem;
-    font-weight: 100;
+    font-weight: 300;
+    text-decoration: underline;
     opacity: 80%;
 }
 
