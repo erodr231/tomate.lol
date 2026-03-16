@@ -1,6 +1,7 @@
 console.log("testing");
 
 // grabbing all my elements i need to control
+
 //html elements
 const timer = document.getElementById("timer")
 
@@ -16,10 +17,13 @@ const stickyTextArea = document.querySelector('.stickyNote');
 const stickyClose = document.getElementById("closeBtn");
 
 //timer elements
-let isPaused = false;
+let isPaused = false; // pause svg switch
+let isBreak = false; // focus and break timer
+
 let timerInterval = null;
 let minutes = 25;
 let seconds = 0;
+let pauseImg = pauseBtn.querySelector('img');
 
 // FUNCTIONS
 function startTimer(){
@@ -31,19 +35,41 @@ function startTimer(){
     timerInterval = setInterval(tick, 1000);
 }
 
-function tick(){
-    if (seconds === 0){ //counting the minutes and seconds
+function tick(){ // timer logic
+    if (seconds === 0 && minutes === 0){ // 25 min timer over
+        
+        clearInterval(timerInterval);
+        isPaused = true;
+        pauseImg.src = 'images/resume-button.svg';
+
+        if (isBreak){ // if break is over, back to 25 min
+            minutes = 25;
+            seconds = 0;
+            
+            timer.textContent = `25:00`
+            isBreak = false;
+        } else { // focus is over, 5 min break
+            minutes = 5;
+            seconds = 0;
+
+            timer.textContent = `5:00`
+            isBreak = true;
+        }
+        return;
+    }
+
+    if (seconds === 0){ // countdown to 0 
         minutes--;
         seconds = 59;
     } else{
         seconds--;
     }
 
-    timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`; //display this on the screen
+    timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`; // display countdown on the screen, 0 remains in place if less than 10
 }
 
 function toggleTimer(){ // function to toggle resume/pause timer
-    let pauseImg = pauseBtn.querySelector('img');
+    
 
     if (isPaused){ 
         // switch icons
@@ -63,15 +89,16 @@ function toggleTimer(){ // function to toggle resume/pause timer
     }
 } 
 
-function restartTimer(){ // restart entire timer to 25:00 or to the user's input 
+function restartTimer(){ // restart entire timer to default or to the user's input 
     console.log("restart");
+    
     clearInterval(timerInterval); // clear
 
-    minutes = 25;
+    minutes = isBreak ? 5 : 25; // determines if its break or focus time
     seconds = 0;
     
     timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`;
-    // timerInterval = setInterval(tick, 1000);
+    
     
     isPaused = true;
     pauseBtn.querySelector('img').src = 'images/resume-button.svg';
