@@ -188,6 +188,10 @@ main{
     display: none;
 }
 
+.stickyNote img:hover{
+    content: url('images/stickyNoteIcon_hover.svg');
+}
+
 textarea{
     font-family: var(--font-secondary);
     padding: 10px;
