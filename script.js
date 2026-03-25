@@ -16,14 +16,23 @@ const stickyBtn = document.getElementById("sticky");
 const stickyTextArea = document.querySelector('.stickyNote');
 const stickyClose = document.getElementById("closeBtn");
 
+const settingsWin = document.querySelector(".settings");
+
+
 //timer elements
 let isPaused = false; // pause svg switch
 let isBreak = false; // focus and break timer
 
 let timerInterval = null;
-let minutes = 25;
+
 let seconds = 0;
 let pauseImg = pauseBtn.querySelector('img');
+
+// user inputs
+let focusTime = 25;
+let breakTime = 5;
+
+let minutes = focusTime;
 
 // FUNCTIONS
 function startTimer(){
@@ -43,16 +52,16 @@ function tick(){ // timer logic
         pauseImg.src = 'images/resume-button.svg';
 
         if (isBreak){ // if break is over, back to 25 min
-            minutes = 25;
+            minutes = focusTime;
             seconds = 0;
             
-            timer.textContent = `25:00`
+            timer.textContent = `${focusTime}:00`;
             isBreak = false;
         } else { // focus is over, 5 min break
-            minutes = 5;
+            minutes = breakTime;
             seconds = 0;
 
-            timer.textContent = `5:00`
+            timer.textContent = `${breakTime}:00`
             isBreak = true;
         }
         return;
@@ -94,7 +103,7 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     
     clearInterval(timerInterval); // clear
 
-    minutes = isBreak ? 5 : 25; // determines if its break or focus time
+    minutes = isBreak ? breakTime : focusTime; // determines if its break or focus time
     seconds = 0;
     
     timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`;
@@ -108,9 +117,14 @@ function showSticky(){
     stickyTextArea.toggleAttribute("hidden"); // toggle hides the notepad
 }
 
+function settingsOpen(){
+    settingsWin.toggleAttribute("hidden");
+}
+
 // EVENT LISTENERS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
 restartBtn.addEventListener("click", restartTimer);
 stickyBtn.addEventListener("click", showSticky);
 stickyClose.addEventListener("click", showSticky)
+settingsBtn.addEventListener("click", settingsOpen)

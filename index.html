@@ -50,6 +50,35 @@
                 </button>
             </div>
         </div>
+        
+        <!-- settings toggle -->
+        <div class="settings" hidden>
+            <div class="settingsHeader">
+                <h2>settings</h2>
+                <button class="closeBtn" id="closeSettingsBtn">✕</button>
+            </div>
+            
+            <div>
+                <label>focus time:</label>
+                <input type="number" value="25" id="focusTime">
+            </div>
+
+            <div>
+                <label>break time:</label>
+                <input type="number" value="5" id="breakTime">
+            </div>
+            
+            <div>
+                <label>dark mode:</label>
+                <label class="toggle">
+                    <input type="checkbox" id="darkModeToggle" name="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+
+            <button id="saveSettings">apply</button>
+        </div>
 
         <!-- sticky note toggle -->
         <button id="sticky">
