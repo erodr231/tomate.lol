@@ -259,34 +259,48 @@ footer img {
 }
 
 /* === SETTINGS WINDOW === */
+.settings[hidden] {
+    display: none;
+}
+
 .settings{
     display: flex;
     flex-direction: column;
     border: 2px solid var(--text-color);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 20px 90px 50px;
+    border-radius: 15px;
     gap: 10px;
     background-color: var(--);
 }
 
-.settingsHeader{
+.settings > div{
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .settingsHeader{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
     font-size: 3rem;
     font-weight: bold;
 }
 
+.settings label:first-child{
+    width: 130px;
+    font-size: 1.3rem;
+}
+
 #closeSettingsBtn{
     position: relative;
-    top: -25px;
-    right: -15px;
+    top: -10px;
+    right: -190px;
+    text-decoration: underline;
 }
 
 .settings input{
-    /* max-width: 100px; */
     border-radius: 10px;
     padding: 5px;
 }
@@ -294,7 +308,17 @@ footer img {
 input#focusTime, input#breakTime {
     font-family: var(--font-secondary);
     font-size: 1.2rem;
+    width: 80px;
 }
+
+#saveSettings{
+    all: unset;
+    cursor: pointer;
+    border: 2px solid var(--text-color);
+    padding: 10px;
+    border-radius: 15px;
+}
+
 
 /* === CHECKBOX STYLE === */
 .toggle {
@@ -333,7 +357,8 @@ input#focusTime, input#breakTime {
 }
 
 input:checked + .slider {
-  background-color: #060; // placeholdercolor
+    /* placeholder */
+  background-color: #060; 
 }
 
 input:checked + .slider:before {

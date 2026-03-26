@@ -17,7 +17,10 @@ const stickyTextArea = document.querySelector('.stickyNote');
 const stickyClose = document.getElementById("closeBtn");
 
 const settingsWin = document.querySelector(".settings");
-
+const settingsClose = document.getElementById("closeSettingsBtn");
+const settingsSave = document.getElementById("saveSettings");
+const focusInput = document.getElementById("focusTime");
+const breakInput = document.getElementById("breakTime");
 
 //timer elements
 let isPaused = false; // pause svg switch
@@ -117,14 +120,26 @@ function showSticky(){
     stickyTextArea.toggleAttribute("hidden"); // toggle hides the notepad
 }
 
-function settingsOpen(){
+function showSettings(){
     settingsWin.toggleAttribute("hidden");
+}
+
+function saveSettings(){
+    // grab input values, update focusTime and breakTime with those values, reset timer with new times
+    focusTime = Number(focusInput.value);
+    breakTime = Number(breakInput.value);
+
+    restartTimer(); // restarts timer
 }
 
 // EVENT LISTENERS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
 restartBtn.addEventListener("click", restartTimer);
+
 stickyBtn.addEventListener("click", showSticky);
-stickyClose.addEventListener("click", showSticky)
-settingsBtn.addEventListener("click", settingsOpen)
+stickyClose.addEventListener("click", showSticky);
+
+settingsBtn.addEventListener("click", showSettings);
+settingsClose.addEventListener("click", showSettings);
+settingsSave.addEventListener("click", saveSettings);
