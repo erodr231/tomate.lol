@@ -8,6 +8,7 @@ const timer = document.getElementById("timer")
 const startBtn = document.getElementById("startBtn");
 const timerMode = document.getElementById("mode");
 
+const sessionCounter = document.getElementById("sessionCounter");
 const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
 const pauseBtn = document.getElementById("pauseBtn");
@@ -37,35 +38,47 @@ let breakTime = 5;
 
 let minutes = focusTime;
 
+//session count
+let count = 0;
+let totalMinutes = 0;
+
 // FUNCTIONS
 function startTimer(){
     timerMode.classList.add("shrink");
     timerBtns.hidden = false
     timer.hidden = false;
     startBtn.hidden = true;
+    sessionCounter.hidden = false;
 
     timerInterval = setInterval(tick, 1000);
 }
 
 function tick(){ // timer logic
     if (seconds === 0 && minutes === 0){ // 25 min timer over
-        
         clearInterval(timerInterval);
         isPaused = true;
         pauseImg.src = 'images/resume-button.svg';
+        
 
         if (isBreak){ // if break is over, back to 25 min
             minutes = focusTime;
             seconds = 0;
             
+            timerMode.textContent = `lets focus!`;
             timer.textContent = `${focusTime}:00`;
             isBreak = false;
+
         } else { // focus is over, 5 min break
             minutes = breakTime;
             seconds = 0;
 
-            timer.textContent = `${breakTime}:00`
+            timerMode.textContent = `take a break!`;
+            timer.textContent = `${breakTime}:00`;
             isBreak = true;
+
+            count++;
+            totalMinutes = count*minutes;
+            sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
         }
         return;
     }
@@ -128,8 +141,13 @@ function saveSettings(){
     // grab input values, update focusTime and breakTime with those values, reset timer with new times
     focusTime = Number(focusInput.value);
     breakTime = Number(breakInput.value);
-
-    restartTimer(); // restarts timer
+    
+    if(focusTime <= 0 || breakTime <= 0){ // validation
+        alert("Please enter a valid number in minutes.");
+    } else{
+        restartTimer(); // restarts timer from beginning
+    }
+    
 }
 
 // EVENT LISTENERS

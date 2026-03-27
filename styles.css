@@ -145,6 +145,13 @@ main{
     height: 150px;
 }
 
+#sessionCounter{
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-top: 10px;
+    opacity: 75%;
+}
+
 
 /* === TIMER  === */
 #timer{

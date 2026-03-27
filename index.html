@@ -29,6 +29,7 @@
     <main> 
         <!-- center content -->
         <div class="timerDisplay">
+            
             <p id="mode">lets focus!</p>
             <h2 id="timer" hidden >25:00</h2>
 
@@ -49,6 +50,8 @@
                     <img src="images/restartButton.svg" alt="restart button">
                 </button>
             </div>
+
+            <p id="sessionCounter" hidden></p>
         </div>
         
         <!-- settings toggle -->
@@ -74,6 +77,14 @@
                 <label>dark mode:</label>
                 <label class="toggle">
                     <input type="checkbox" id="darkModeToggle" name="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div>
+                <label>session counter:</label>
+                <label class="toggle">
+                    <input type="checkbox" id="sessionToggle" name="sessionToggle">
                     <span class="slider"></span>
                 </label>
             </div>
