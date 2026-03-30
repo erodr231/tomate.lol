@@ -10,6 +10,7 @@ const timer = document.getElementById("timer")
 
 const startBtn = document.getElementById("startBtn");
 const timerMode = document.getElementById("mode");
+const tagline = document.getElementById("tagline")
 
 const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
@@ -51,6 +52,7 @@ let breakTime = 5;
 
 // FUNCTIONS
 function startTimer(){
+    // tagline.hidden = true;
     timerMode.classList.add("shrink");
     timerBtns.hidden = false
     timer.hidden = false;
@@ -190,6 +192,7 @@ function saveSettings(){
     
     // checkbox state
     showSessionCounter = sessionToggle.checked; // if true, showSessions
+    sessionCounter.hidden = !showSessionCounter;
 
     if(timesChanged){ // when setting apply, only resets timer if user inputs times.
         restartTimer(); // restarts timer from beginning

@@ -110,6 +110,12 @@ main{
     align-items: center;
 }
 
+#tagline{
+    opacity: 75%;
+    margin: 20px;
+    font-size: 15px;
+}
+
 .timerDisplay{
     display: flex;
     flex-direction: column;
@@ -123,7 +129,9 @@ main{
     color: var(--text-color);
     transition: font-size 1s cubic-bezier(1, 0, 0, 1.01), font-weight 2s ease;
 }
+
 /* START BUTTON TRANSITION */
+
 #mode.shrink{
     font-size: 3rem;
     font-weight: 200;
@@ -147,6 +155,7 @@ main{
 
 #sessionCounter{
     font-size: 1rem;
+    line-height: 25px;
     color: var(--text-color);
     margin-top: 10px;
     opacity: 75%;
