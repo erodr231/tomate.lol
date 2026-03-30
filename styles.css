@@ -55,14 +55,14 @@ table {
     
 
     /* TESTING COLOR PALLETTE */
-    --footer-color: #8DBB8B;
+    --off-white: #F8F0E3;
     --main-color: #8DBB8B;
-    --header-color: #8DBB8B;
     --yellow: #feca3cd5;
 }
 
 /* === BASE === */
 body{
+    background-color: var(--main-color);
     font-family: var(--font-primary);
     display: flex;
     flex-direction: column;
@@ -101,7 +101,6 @@ nav ul{
 /* === MAIN === */
 main{
     position: relative;
-    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -278,7 +277,7 @@ footer img {
     padding: 10px 40px 20px;
     border-radius: 15px;
     gap: 10px;
-    background-color: white;
+    background-color: var(--off-white);
     opacity: 75%;
 }
 
@@ -330,6 +329,10 @@ input#focusTime, input#breakTime {
     border-radius: 15px;
 }
 
+#saveSettings:hover{
+    text-decoration: underline;
+}
+
 
 /* === CHECKBOX STYLE === */
 .toggle {
@@ -369,7 +372,7 @@ input#focusTime, input#breakTime {
 
 input:checked + .slider {
     /* placeholder */
-  background-color: #060; 
+  background-color: var(--main-color); 
 }
 
 input:checked + .slider:before {

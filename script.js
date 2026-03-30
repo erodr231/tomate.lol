@@ -11,7 +11,6 @@ const timer = document.getElementById("timer")
 const startBtn = document.getElementById("startBtn");
 const timerMode = document.getElementById("mode");
 
-const sessionCounter = document.getElementById("sessionCounter");
 const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
 const pauseBtn = document.getElementById("pauseBtn");
@@ -25,6 +24,13 @@ const settingsClose = document.getElementById("closeSettingsBtn");
 const settingsSave = document.getElementById("saveSettings");
 const focusInput = document.getElementById("focusTime");
 const breakInput = document.getElementById("breakTime");
+
+//session counter
+const sessionCounter = document.getElementById("sessionCounter"); // html
+const sessionToggle = document.getElementById("sessionToggle"); // checkbox
+let showSessionCounter = true; // toggle
+let count = 0;
+let totalMinutes = 0;
 
 //timer elements
 let isPaused = false; // pause svg switch
@@ -41,9 +47,7 @@ let pauseImg = pauseBtn.querySelector('img');
 let focusTime = 25;
 let breakTime = 5;
 
-//session count
-let count = 0;
-let totalMinutes = 0;
+
 
 // FUNCTIONS
 function startTimer(){
@@ -51,7 +55,7 @@ function startTimer(){
     timerBtns.hidden = false
     timer.hidden = false;
     startBtn.hidden = true;
-    sessionCounter.hidden = false;
+    sessionCounter.hidden = !showSessionCounter;
 
     totalDuration = focusTime * 60;
     remainingTime = totalDuration;
@@ -86,7 +90,31 @@ function tick(){ // timer logic
 
             count++;
             totalMinutes = count*focusTime;
-            sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
+
+            if(showSessionCounter){
+                sessionCounter.hidden = false;
+                if (totalMinutes >= 60){
+                    let sessionHrs = Math.floor(totalMinutes / 60);
+                    let sessionMin = totalMinutes % 60;
+
+                    if (sessionHrs == 1 && sessionMin == 0){
+                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour!`;
+                    } else if (sessionHrs == 1){
+                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour and ${sessionMin} minutes!`;
+                    } else if (sessionMin == 0){
+                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour!`;
+                    } else{
+                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hours and ${sessionMin} minutes!`;
+                    }
+                    
+                } else{
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
+                }
+                
+            }else{
+                sessionCounter.hidden = true;
+            }
+            
         }
         startTime = null;
         return;
@@ -129,8 +157,6 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     startTime = null;
 
     const mins = isBreak ? breakTime : focusTime; // determines if its break or focus time
-    
-
     timer.textContent = `${mins}:00`;
     
     isPaused = true;
@@ -158,7 +184,8 @@ function saveSettings(){
         breakTime = newBreak;
         restartTimer(); // restarts timer from beginning
     }
-    
+    // checkbox state
+    showSessionCounter = sessionToggle.checked; // if true, showSession
 }
 
 // EVENT LISTENERS
