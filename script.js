@@ -2,6 +2,9 @@ console.log("testing");
 
 // grabbing all my elements i need to control
 
+// audio
+const alarmSound = new Audio('sounds/alarm.mp3');
+
 //html elements
 const timer = document.getElementById("timer")
 
@@ -28,15 +31,15 @@ let isPaused = false; // pause svg switch
 let isBreak = false; // focus and break timer
 
 let timerInterval = null;
+let startTime = null;
+let remainingTime = null; // in seconds, tracks time when left paused
+let totalDuration = null; // in seconds
 
-let seconds = 0;
 let pauseImg = pauseBtn.querySelector('img');
 
 // user inputs
 let focusTime = 25;
 let breakTime = 5;
-
-let minutes = focusTime;
 
 //session count
 let count = 0;
@@ -50,27 +53,32 @@ function startTimer(){
     startBtn.hidden = true;
     sessionCounter.hidden = false;
 
-    timerInterval = setInterval(tick, 1000);
+    totalDuration = focusTime * 60;
+    remainingTime = totalDuration;
+    startTime = Date.now();
+
+    timerInterval = setInterval(tick, 500);
 }
 
 function tick(){ // timer logic
-    if (seconds === 0 && minutes === 0){ // 25 min timer over
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const remaining = remainingTime - elapsed;
+
+    if (remaining <= 0){ // timer over
+        alarmSound.play();
         clearInterval(timerInterval);
         isPaused = true;
         pauseImg.src = 'images/resume-button.svg';
-        
 
         if (isBreak){ // if break is over, back to 25 min
-            minutes = focusTime;
-            seconds = 0;
+            remainingTime = focusTime * 60;
             
             timerMode.textContent = `lets focus!`;
             timer.textContent = `${focusTime}:00`;
             isBreak = false;
 
         } else { // focus is over, 5 min break
-            minutes = breakTime;
-            seconds = 0;
+            remainingTime = breakTime * 60;
 
             timerMode.textContent = `take a break!`;
             timer.textContent = `${breakTime}:00`;
@@ -80,34 +88,32 @@ function tick(){ // timer logic
             totalMinutes = count*minutes;
             sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
         }
+        startTime = null;
         return;
     }
-
-    if (seconds === 0){ // countdown to 0 
-        minutes--;
-        seconds = 59;
-    } else{
-        seconds--;
-    }
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
 
     timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`; // display countdown on the screen, 0 remains in place if less than 10
 }
 
 function toggleTimer(){ // function to toggle resume/pause timer
-    
-
     if (isPaused){ 
         // switch icons
         pauseImg.src = 'images/pauseButton.svg';
         
-        //resume 
-        timerInterval = setInterval(tick, 1000);
+        //resume -- record new start time based on remaining time
+        startTime = Date.now();
+        timerInterval = setInterval(tick, 500);
         isPaused = false;
         console.log("I am resuming")
     } else {
         // switch icons
         pauseImg.src = 'images/resume-button.svg';
 
+        // pause , save how much time is left
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        remainingTime = remainingTime - elapsed;
         clearInterval(timerInterval);
         isPaused = true;
         console.log("I am paused")
@@ -119,11 +125,10 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     
     clearInterval(timerInterval); // clear
 
-    minutes = isBreak ? breakTime : focusTime; // determines if its break or focus time
-    seconds = 0;
-    
-    timer.textContent = `${minutes}:${seconds < 10 ? '0' :''}${seconds}`;
-    
+    remainingTime = isBreak ? breakTime * 60 : focusTime * 60; // determines if its break or focus time
+    startTime = null;
+
+    timer.textContent = `${mins}:00`;
     
     isPaused = true;
     pauseBtn.querySelector('img').src = 'images/resume-button.svg';
@@ -139,12 +144,15 @@ function showSettings(){
 
 function saveSettings(){
     // grab input values, update focusTime and breakTime with those values, reset timer with new times
-    focusTime = Number(focusInput.value);
-    breakTime = Number(breakInput.value);
     
-    if(focusTime <= 0 || breakTime <= 0){ // validation
+    const newFocus = Number(focusInput.value);
+    const newBreak = Number(breakInput.value);
+    
+    if(newFocus <= 0 || newBreak <= 0){ // validation
         alert("Please enter a valid number in minutes.");
     } else{
+        focusTime = newFocus;
+        breakTime = newBreak;
         restartTimer(); // restarts timer from beginning
     }
     

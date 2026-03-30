@@ -14,7 +14,6 @@ The Pomodoro Technique is a time management tool created by Francesco Cirillo in
 - Clean, minimal UI
 
 ## Tech Stack
-
 - HTML
 - CSS
 - Vanilla JavaScript
@@ -22,4 +21,6 @@ The Pomodoro Technique is a time management tool created by Francesco Cirillo in
 ## Getting Started
 
 No setup needed! Just visit [tomate.lol](https://erodr231.github.io/tomate.lol/).
+
+Sound Effect by <a href="https://pixabay.com/users/alexis_gaming_cam-50011695/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=342934">ALEXIS_GAMING_CAM</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=342934">Pixabay</a>
 
