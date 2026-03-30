@@ -85,7 +85,7 @@ function tick(){ // timer logic
             isBreak = true;
 
             count++;
-            totalMinutes = count*minutes;
+            totalMinutes = count*focusTime;
             sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
         }
         startTime = null;
@@ -125,8 +125,11 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     
     clearInterval(timerInterval); // clear
 
-    remainingTime = isBreak ? breakTime * 60 : focusTime * 60; // determines if its break or focus time
+    remainingTime = isBreak ? breakTime * 60: focusTime * 60;
     startTime = null;
+
+    const mins = isBreak ? breakTime : focusTime; // determines if its break or focus time
+    
 
     timer.textContent = `${mins}:00`;
     
