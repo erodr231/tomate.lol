@@ -56,6 +56,7 @@ table {
 
     /* TESTING COLOR PALLETTE */
     --off-white: #F8F0E3;
+    --toggle-color:#569f52;
     --main-color: #8DBB8B;
     --yellow: #feca3cd5;
 }
@@ -372,7 +373,7 @@ input#focusTime, input#breakTime {
 
 input:checked + .slider {
     /* placeholder */
-  background-color: var(--main-color); 
+  background-color: var(--toggle-color); 
 }
 
 input:checked + .slider:before {

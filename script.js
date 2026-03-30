@@ -179,13 +179,22 @@ function saveSettings(){
     
     if(newFocus <= 0 || newBreak <= 0){ // validation
         alert("Please enter a valid number in minutes.");
-    } else{
-        focusTime = newFocus;
-        breakTime = newBreak;
+        return;
+    }
+
+    const timesChanged = newFocus !== focusTime || newBreak !== breakTime;
+    console.log("newFocus:", newFocus, "focusTime:", focusTime, "timesChanged:", timesChanged);
+
+    focusTime = newFocus;
+    breakTime = newBreak;
+    
+    // checkbox state
+    showSessionCounter = sessionToggle.checked; // if true, showSessions
+
+    if(timesChanged){ // when setting apply, only resets timer if user inputs times.
         restartTimer(); // restarts timer from beginning
     }
-    // checkbox state
-    showSessionCounter = sessionToggle.checked; // if true, showSession
+
 }
 
 // EVENT LISTENERS
