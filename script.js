@@ -34,6 +34,10 @@ let showSessionCounter = true; // toggle
 let count = 0;
 let totalMinutes = 0;
 
+// dark mode
+const darkModeToggle = document.getElementById("darkModeToggle"); // checkbox
+let darkModeEnabled = false;
+
 //timer elements
 let isPaused = false; // pause svg switch
 let isBreak = false; // focus and break timer
@@ -78,6 +82,7 @@ function tick(){ // timer logic
         pauseImg.src = 'images/resume-button.svg';
 
         if (isBreak){ // if break is over, back to 25 min
+            body.classList.remove("breakMode");
             remainingTime = focusTime * 60;
             
             timerMode.textContent = `lets focus!`;
@@ -85,7 +90,7 @@ function tick(){ // timer logic
             isBreak = false;
 
         } else { // focus is over, 5 min break
-            body.classList.add("breakMode")
+            body.classList.add("breakMode");
             remainingTime = breakTime * 60;
 
             timerMode.textContent = `take a break!`;
@@ -195,6 +200,12 @@ function saveSettings(){
     // checkbox state
     showSessionCounter = sessionToggle.checked; // if true, showSessions
     sessionCounter.hidden = !showSessionCounter;
+
+    if (darkModeEnabled = darkModeToggle.checked){
+        body.classList.add("darkMode");
+    } else{
+        body.classList.remove("darkMode");
+    }
 
     if(timesChanged){ // when setting apply, only resets timer if user inputs times.
         restartTimer(); // restarts timer from beginning
