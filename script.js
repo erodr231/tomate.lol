@@ -1,4 +1,3 @@
-console.log("testing");
 
 // grabbing all my elements i need to control
 
@@ -15,7 +14,7 @@ const tagline = document.getElementById("tagline")
 
 const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
-const pauseBtn = document.getElementById("pauseBtn");
+// const pauseBtn = document.getElementById("pauseBtn");
 const restartBtn = document.getElementById("restartBtn");
 const stickyBtn = document.getElementById("sticky");
 const stickyTextArea = document.querySelector('.stickyNote');
@@ -47,7 +46,8 @@ let startTime = null;
 let remainingTime = null; // in seconds, tracks time when left paused
 let totalDuration = null; // in seconds
 
-let pauseImg = pauseBtn.querySelector('img');
+const svgPause = document.getElementById("pauseIcon");
+const svgResume = document.getElementById("resumeIcon");
 
 // user inputs
 let focusTime = 25;
@@ -79,7 +79,8 @@ function tick(){ // timer logic
         alarmSound.play();
         clearInterval(timerInterval);
         isPaused = true;
-        pauseImg.src = 'images/resume-button.svg';
+        svgPause.setAttribute('hidden', '');
+        svgResume.removeAttribute('hidden');
 
         if (isBreak){ // if break is over, back to 25 min
             body.classList.remove("breakMode");
@@ -135,10 +136,12 @@ function tick(){ // timer logic
 }
 
 function toggleTimer(){ // function to toggle resume/pause timer
+    
     if (isPaused){ 
-        // switch icons
-        pauseImg.src = 'images/pauseButton.svg';
-        
+        //switch icons
+        svgResume.setAttribute('hidden', '');
+        svgPause.removeAttribute('hidden');
+
         //resume -- record new start time based on remaining time
         startTime = Date.now();
         timerInterval = setInterval(tick, 500);
@@ -146,14 +149,16 @@ function toggleTimer(){ // function to toggle resume/pause timer
         console.log("I am resuming")
     } else {
         // switch icons
-        pauseImg.src = 'images/resume-button.svg';
+        console.log("I am paused");
+
+        svgPause.setAttribute('hidden', '');
+        svgResume.removeAttribute('hidden');
 
         // pause , save how much time is left
         const elapsed = Math.floor((Date.now() - startTime) / 1000);
         remainingTime = remainingTime - elapsed;
         clearInterval(timerInterval);
         isPaused = true;
-        console.log("I am paused")
     }
 } 
 
@@ -169,7 +174,8 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     timer.textContent = `${mins}:00`;
     
     isPaused = true;
-    pauseBtn.querySelector('img').src = 'images/resume-button.svg';
+    svgPause.setAttribute('hidden', '');
+    svgResume.removeAttribute('hidden');
 }
 
 function showSticky(){
@@ -201,7 +207,7 @@ function saveSettings(){
     showSessionCounter = sessionToggle.checked; // if true, showSessions
     sessionCounter.hidden = !showSessionCounter;
 
-    if (darkModeEnabled = darkModeToggle.checked){
+    if (darkModeToggle.checked){
         body.classList.add("darkMode");
     } else{
         body.classList.remove("darkMode");

@@ -52,7 +52,7 @@ table {
     --font-secondary: "Pangolin", sans-serif;
     
     --text-color: #2d2d2d;
-    //050505
+    /* 050505 */
     
 
     /* TESTING COLOR PALLETTE */
@@ -233,7 +233,7 @@ textarea:focus{
 
 textarea::placeholder{
     color: var(--text-color);
-    opacity: 50%;
+    opacity: 70%;
 }
 
 /* === FOOTER === */
@@ -245,10 +245,6 @@ footer{
     background-color: var(--footer-color);
 }
 
-footer img {
-    width: auto;
-    height: 40px;
-}
 
 /* === ABOUT === */
 .abtContainer {
@@ -351,6 +347,13 @@ input#focusTime, input#breakTime {
     text-decoration: underline;
 }
 
+svg:hover{
+    cursor: pointer;
+}
+
+svg[hidden] {
+    display: none;
+}
 
 /* === CHECKBOX STYLE === */
 .toggle {
@@ -402,7 +405,23 @@ input:checked + .slider:before {
     --text-color: #e0e0e0;
     --main-color: #1a1a1a;
     --breakRed: #555555;
-    --yellow: #3a3a2a;
+}
+
+body.darkMode svg circle {
+    fill: #6a6a6a;
+}
+
+body.darkMode footer svg path,
+body.darkMode footer svg g {
+    fill: #e0e0e0;
+}
+
+body.darkMode #saveSettings, body.darkMode .settings{
+    border: 2px solid #1a1a1a;
+}
+
+body.darkMode textarea::placeholder{
+    color: #1a1a1a;
 }
 
 :root{
