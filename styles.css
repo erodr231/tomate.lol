@@ -404,7 +404,7 @@ input:checked + .slider:before {
 .darkMode{
     --text-color: #e0e0e0;
     --main-color: #1a1a1a;
-    --breakRed: #555555;
+    --breakRed: #3a3a3a;
 }
 #timerBtns svg {
     overflow: visible;

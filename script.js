@@ -86,7 +86,7 @@ function tick(){ // timer logic
             body.classList.remove("breakMode");
             remainingTime = focusTime * 60;
             
-            timerMode.textContent = `lets focus!`;
+            timerMode.textContent = `let's focus!`;
             timer.textContent = `${focusTime}:00`;
             isBreak = false;
 
@@ -113,7 +113,9 @@ function tick(){ // timer logic
                         sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour and ${sessionMin} minutes!`;
                     } else if (sessionMin == 0){
                         sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour!`;
-                    } else{
+                    } else if (sessionMin == 1){
+                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionMin} minute!`;
+                    }else{
                         sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hours and ${sessionMin} minutes!`;
                     }
                     
