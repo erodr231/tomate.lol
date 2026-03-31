@@ -6,6 +6,7 @@ console.log("testing");
 const alarmSound = new Audio('sounds/alarm.mp3');
 
 //html elements
+const body = document.getElementById("body");
 const timer = document.getElementById("timer")
 
 const startBtn = document.getElementById("startBtn");
@@ -52,7 +53,7 @@ let breakTime = 5;
 
 // FUNCTIONS
 function startTimer(){
-    // tagline.hidden = true;
+    tagline.hidden = true;
     timerMode.classList.add("shrink");
     timerBtns.hidden = false
     timer.hidden = false;
@@ -84,6 +85,7 @@ function tick(){ // timer logic
             isBreak = false;
 
         } else { // focus is over, 5 min break
+            body.classList.add("breakMode")
             remainingTime = breakTime * 60;
 
             timerMode.textContent = `take a break!`;

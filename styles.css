@@ -51,7 +51,7 @@ table {
     --font-primary: "LINE Seed JP", sans-serif; 
     --font-secondary: "Pangolin", sans-serif;
     
-    --text-color: #223027;
+    --text-color: #2d2d2d;
     
 
     /* TESTING COLOR PALLETTE */
@@ -59,6 +59,8 @@ table {
     --toggle-color:#569f52;
     --main-color: #8DBB8B;
     --yellow: #feca3cd5;
+    --breakRed: #ec8f85;
+    --breakReddois: #ff8280;
 }
 
 /* === BASE === */
@@ -68,6 +70,11 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.8s ease;
+}
+
+body.breakMode{
+    background-color: var(--breakRed);
 }
 
 h1, h2, p{
@@ -111,10 +118,12 @@ main{
 }
 
 #tagline{
-    opacity: 75%;
-    margin: 20px;
+    opacity: 45%;
+    padding: 10px;
     font-size: 15px;
+    
 }
+
 
 .timerDisplay{
     display: flex;

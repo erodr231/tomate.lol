@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
-<body>
-
+<body id="body">
     <header>
         <h1><a href="index.html">tomate.lol</a></h1>
         <nav>
@@ -28,10 +27,12 @@
 
     <main> 
         <!-- center content -->
+
         <div class="timerDisplay">
-            
-            
+            <p id="tagline">a pomodoro timer for getting things done.</p>
+
             <p id="mode">lets focus!</p>
+
             <h2 id="timer" hidden >25:00</h2>
 
             <button id="startBtn">
@@ -51,7 +52,7 @@
                     <img src="images/restartButton.svg" alt="restart button">
                 </button>
             </div>
-            <p id="tagline">a pomodoro timer for getting things done.</p>
+            
 
             <p id="sessionCounter" hidden></p>
         </div>
