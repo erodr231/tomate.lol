@@ -104,23 +104,29 @@ function tick(){ // timer logic
             if(showSessionCounter){
                 sessionCounter.hidden = false;
                 if (totalMinutes >= 60){
-                    let sessionHrs = Math.floor(totalMinutes / 60);
-                    let sessionMin = totalMinutes % 60;
+                    let sessionHrs = Math.floor(totalMinutes / 60); // converting to hrs
+                    let sessionMin = totalMinutes % 60; // converting the remaining minutes
+                    let timeString;
 
-                    if (sessionHrs == 1 && sessionMin == 0){
-                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour!`;
-                    } else if (sessionHrs == 1){
-                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour and ${sessionMin} minutes!`;
-                    } else if (sessionMin == 0){
-                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hour!`;
-                    } else if (sessionMin == 1){
-                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionMin} minute!`;
-                    }else{
-                        sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${sessionHrs} hours and ${sessionMin} minutes!`;
+                    if(sessionHrs === 1 && sessionMin === 0){
+                        timeString = `1 hour`;
+                    } else if (sessionHrs > 1 && sessionMin === 0){
+                        timeString = `${sessionHrs} hours`;
+                    } else if (sessionHrs === 1 && sessionMin === 1){
+                        timeString = `1 hour and 1 minute`;
+                    } else if (sessionHrs === 1){
+                        timeString = `1 hour and ${sessionMin} minutes`;
+                    } else if (sessionMin === 1){
+                        timeString = `${sessionHrs} hours and 1 minute`;
+                    } else {
+                        timeString = `${sessionHrs} hours and ${sessionMin} minutes`;
                     }
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${timeString}`;
                     
-                } else{
-                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
+                } else if (totalMinutes === 1){
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minute`;
+                } else {
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes`;
                 }
                 
             }else{
