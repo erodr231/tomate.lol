@@ -121,12 +121,12 @@ function tick(){ // timer logic
                     } else {
                         timeString = `${sessionHrs} hours and ${sessionMin} minutes`;
                     }
-                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${timeString}`;
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${timeString}!`;
                     
                 } else if (totalMinutes === 1){
-                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minute`;
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minute!`;
                 } else {
-                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes`;
+                    sessionCounter.innerHTML = `focus sessions complete: ${count}</br> that's ${totalMinutes} minutes!`;
                 }
                 
             }else{

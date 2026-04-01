@@ -60,7 +60,7 @@ table {
     --toggle-color:#569f52;
     --main-color: #8DBB8B;
     --yellow: #feca3cd5;
-    --breakRed: #f0716f;
+    --breakRed: #d44947;
 }
 
 /* === BASE === */
@@ -312,7 +312,7 @@ footer{
 
 .settings label:first-child{
     text-align: left;
-    width: 170px;
+    width: 195px;
     font-size: 1.3rem;
 }
 
@@ -320,7 +320,7 @@ footer{
     position: relative;
     width: 30px;
     height: 30px;
-    left: 280px;
+    left: 300px;
     text-decoration: underline;
 }
 
@@ -329,7 +329,7 @@ footer{
     padding: 5px;
 }
 
-input#focusTime, input#breakTime {
+input#focusTime, input#breakTime, input#longBreakTime{
     font-family: var(--font-secondary);
     font-size: 1.2rem;
     width: 80px;
@@ -341,6 +341,7 @@ input#focusTime, input#breakTime {
     border: 2px solid var(--text-color);
     padding: 10px;
     border-radius: 15px;
+    margin-top: 5px;
 }
 
 #saveSettings:hover{
