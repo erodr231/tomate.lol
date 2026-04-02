@@ -56,6 +56,8 @@ const svgResume = document.getElementById("resumeIcon");
 let focusTime = 25;
 let breakTime = 5;
 let longBreakTime = 15;
+let currentBreak = breakTime; // this will update depending on count
+let isLongBreak = false; // determines if in long break mode, will change
 
 
 
@@ -99,8 +101,8 @@ function tick(){ // timer logic
             count++; // first thing, increment count
             
             // next check if count is 4
-            const islongBreak = count % 4 === 0 && count > 0;
-            const currentBreak = islongBreak ? longBreakTime : breakTime; // create currentBreak to determine if it's a long or default break
+            isLongBreak = count % 4 === 0 && count > 0;
+            currentBreak = isLongBreak ? longBreakTime : breakTime; // currentBreak determine if it's a long or default break
 
             // if not, 5 min break.
             body.classList.add("breakMode");
@@ -187,10 +189,10 @@ function restartTimer(){ // restart entire timer to default or to the user's inp
     
     clearInterval(timerInterval); // clear
 
-    remainingTime = isBreak ? breakTime * 60: focusTime * 60;
+    remainingTime = isBreak ? currentBreak * 60: focusTime * 60;
     startTime = null;
 
-    const mins = isBreak ? breakTime : focusTime; // determines if its break or focus time
+    const mins = isBreak ? currentBreak : focusTime; // determines if its break or focus time
     timer.textContent = `${mins}:00`;
     
     isPaused = true;
@@ -207,23 +209,46 @@ function showSettings(){
 }
 
 function saveSettings(){
-    // grab input values, update focusTime and breakTime with those values, reset timer with new times
-    
+    // read input values
     const newFocus = Number(focusInput.value);
     const newBreak = Number(breakInput.value);
+    const newLongBreak = Number(longBreakInput.value);
     
-    if(newFocus <= 0 || newBreak <= 0){ // validation
-        alert("Please enter a valid number in minutes.");
-        return;
-    }
+    // 2. validation for negatives / "0"
+    // if(newFocus <= 0 || newBreak <= 0 || newLongBreak <= 0){ // commented out for TESTING
+    //     alert("Please enter a valid number in minutes.");
+    //     return;
+    // }
 
-    const timesChanged = newFocus !== focusTime || newBreak !== breakTime;
-    console.log("newFocus:", newFocus, "focusTime:", focusTime, "timesChanged:", timesChanged);
-
+    // 3. determine what changed
+    const focusChange = newFocus != focusTime; 
+    const shortBreakChange = newBreak != breakTime;
+    const longBreakChange = newLongBreak != longBreakTime;
+    
+    // 4. update values
     focusTime = newFocus;
     breakTime = newBreak;
+    longBreakTime = newLongBreak;
+    currentBreak = isLongBreak ? longBreakTime : breakTime;
+
+    // 5. restart if needed
+    if (!isBreak && focusChange){
+        restartTimer();
+    } else if (isBreak && shortBreakChange){
+        restartTimer()
+    } else if (isBreak && longBreakChange){
+        restartTimer();
+    }
+
     
-    // checkbox state
+    
+    
+    
+    
+
+    
+    
+    // toggle checkbox states
     showSessionCounter = sessionToggle.checked; // if true, showSessions
     sessionCounter.hidden = !showSessionCounter;
 
@@ -231,10 +256,6 @@ function saveSettings(){
         body.classList.add("darkMode");
     } else{
         body.classList.remove("darkMode");
-    }
-
-    if(timesChanged){ // when setting apply, only resets timer if user inputs times.
-        restartTimer(); // restarts timer from beginning
     }
 
 }
