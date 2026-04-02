@@ -23,8 +23,11 @@ const stickyClose = document.getElementById("closeBtn");
 const settingsWin = document.querySelector(".settings");
 const settingsClose = document.getElementById("closeSettingsBtn");
 const settingsSave = document.getElementById("saveSettings");
+
+// user input
 const focusInput = document.getElementById("focusTime");
 const breakInput = document.getElementById("breakTime");
+const longBreakInput = document.getElementById("longBreakTime");
 
 //session counter
 const sessionCounter = document.getElementById("sessionCounter"); // html
@@ -49,9 +52,10 @@ let totalDuration = null; // in seconds
 const svgPause = document.getElementById("pauseIcon");
 const svgResume = document.getElementById("resumeIcon");
 
-// user inputs
+// default times
 let focusTime = 25;
 let breakTime = 5;
+let longBreakTime = 15;
 
 
 
@@ -75,6 +79,7 @@ function tick(){ // timer logic
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
     const remaining = remainingTime - elapsed;
 
+
     if (remaining <= 0){ // timer over
         alarmSound.play();
         clearInterval(timerInterval);
@@ -90,18 +95,25 @@ function tick(){ // timer logic
             timer.textContent = `${focusTime}:00`;
             isBreak = false;
 
-        } else { // focus is over, 5 min break
+        } else { // focus is over, 5 min break or 15 minute long break if count == 4 sessions
+            count++; // first thing, increment count
+            
+            // next check if count is 4
+            const islongBreak = count % 4 === 0 && count > 0;
+            const currentBreak = islongBreak ? longBreakTime : breakTime; // create currentBreak to determine if it's a long or default break
+
+            // if not, 5 min break.
             body.classList.add("breakMode");
-            remainingTime = breakTime * 60;
+            remainingTime = currentBreak * 60;
 
             timerMode.textContent = `take a break!`;
-            timer.textContent = `${breakTime}:00`;
+            timer.textContent = `${currentBreak}:00`; // replace breakTime with currentBreak to reflect what break user is on
             isBreak = true;
 
-            count++;
+            
             totalMinutes = count*focusTime;
 
-            if(showSessionCounter){
+            if(showSessionCounter){ // displays minutes user has focused
                 sessionCounter.hidden = false;
                 if (totalMinutes >= 60){
                     let sessionHrs = Math.floor(totalMinutes / 60); // converting to hrs

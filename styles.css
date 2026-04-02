@@ -247,35 +247,44 @@ footer{
 
 
 /* === ABOUT === */
+
+.abtImg img{
+    height: 300px;
+    width: auto;
+}
+
 .abtContainer {
+    color: var(--text-color);
     display: flex;
     flex-direction: row; 
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: left;   
-    gap: 1rem;
-    padding: 0px 15rem;
 }
 
 .abtContainer h1{
+    font-family: var(--font-secondary);
     font-weight: bold;
     font-size: 4rem;
+    padding: 10px 0px;
 }
 
 .abtSection h2{
     font-weight: bold;
     font-size: 2rem;
-    padding: 10px 0px;
+    padding: 5px 0px;
+    max-width: 600px;
 }
 
 .abtSection{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
     max-width: 750px;
 }
 
 .abtSection p{
     line-height: 20px;
+    margin-bottom: 30px;
 }
 
 /* === SETTINGS WINDOW === */
