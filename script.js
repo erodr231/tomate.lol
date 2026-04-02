@@ -14,7 +14,7 @@ const tagline = document.getElementById("tagline")
 
 const timerBtns = document.getElementById("timerBtns");
 const settingsBtn = document.getElementById("settingsBtn");
-// const pauseBtn = document.getElementById("pauseBtn");
+const pauseBtn = document.getElementById("pauseBtn");
 const restartBtn = document.getElementById("restartBtn");
 const stickyBtn = document.getElementById("sticky");
 const stickyTextArea = document.querySelector('.stickyNote');
@@ -38,7 +38,6 @@ let totalMinutes = 0;
 
 // dark mode
 const darkModeToggle = document.getElementById("darkModeToggle"); // checkbox
-let darkModeEnabled = false;
 
 //timer elements
 let isPaused = false; // pause svg switch
@@ -47,7 +46,6 @@ let isBreak = false; // focus and break timer
 let timerInterval = null;
 let startTime = null;
 let remainingTime = null; // in seconds, tracks time when left paused
-let totalDuration = null; // in seconds
 
 const svgPause = document.getElementById("pauseIcon");
 const svgResume = document.getElementById("resumeIcon");
@@ -70,7 +68,7 @@ function startTimer(){
     startBtn.hidden = true;
     sessionCounter.hidden = !showSessionCounter;
 
-    totalDuration = focusTime * 60;
+    let totalDuration = focusTime * 60;
     remainingTime = totalDuration;
     startTime = Date.now();
 
@@ -234,20 +232,11 @@ function saveSettings(){
     // 5. restart if needed
     if (!isBreak && focusChange){
         restartTimer();
-    } else if (isBreak && shortBreakChange){
+    } else if (isBreak && !isLongBreak && shortBreakChange){
         restartTimer()
-    } else if (isBreak && longBreakChange){
+    } else if (isBreak && isLongBreak && longBreakChange){
         restartTimer();
     }
-
-    
-    
-    
-    
-    
-
-    
-    
     // toggle checkbox states
     showSessionCounter = sessionToggle.checked; // if true, showSessions
     sessionCounter.hidden = !showSessionCounter;
