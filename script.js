@@ -213,10 +213,10 @@ function saveSettings(){
     const newLongBreak = Number(longBreakInput.value);
     
     // 2. validation for negatives / "0"
-    // if(newFocus <= 0 || newBreak <= 0 || newLongBreak <= 0){ // commented out for TESTING
-    //     alert("Please enter a valid number in minutes.");
-    //     return;
-    // }
+    if(newFocus <= 0 || newBreak <= 0 || newLongBreak <= 0){ // commented out for TESTING
+        alert("Please enter a valid number in minutes.");
+        return;
+    }
 
     // 3. determine what changed
     const focusChange = newFocus != focusTime; 

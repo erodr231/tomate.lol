@@ -293,7 +293,7 @@ footer{
 }
 
 .settings{
-    margin-top: 15px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--text-color);
