@@ -224,7 +224,7 @@ textarea{
     height: 175px;
     font-size: 1.2rem;
     font-weight: 100;
-    opacity: 80%;
+    opacity: 70%;
 }
 
 textarea:focus{
@@ -293,7 +293,7 @@ footer{
 }
 
 .settings{
-    margin-top: 5px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--text-color);

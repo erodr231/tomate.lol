@@ -3,6 +3,7 @@
 
 // audio
 const alarmSound = new Audio('sounds/alarm.mp3');
+let volumeSlider = document.getElementById("volumeSlider");
 
 //html elements
 const body = document.getElementById("body");
@@ -260,3 +261,5 @@ stickyClose.addEventListener("click", showSticky);
 settingsBtn.addEventListener("click", showSettings);
 settingsClose.addEventListener("click", showSettings);
 settingsSave.addEventListener("click", saveSettings);
+
+volumeSlider.addEventListener()
