@@ -30,7 +30,7 @@
 <feOffset dx="4" dy="4"/>
 <feGaussianBlur stdDeviation="0.600089"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.489295 0 0 0 0 0.0567512 0 0 0 0 0.0713643 0 0 0 0.57 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_328_1488"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_328_1488" result="shape"/>
 </filter>

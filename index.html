@@ -82,59 +82,60 @@
                 </button>
             </div>
             
+            <!-- settings toggle -->
+            <div class="settings open">
+                
+                <button class="closeBtn" id="closeSettingsBtn">✕</button>
+                
+                <div class="settingsHeader">
+                    <h2>settings</h2>
+                </div>
+                
+                <div>
+                    <label>focus time:</label>
+                    <input type="number" value="25" id="focusTime">
+                </div>
 
-            <p id="sessionCounter" hidden></p>
-        </div>
+                <div>
+                    <label>break time:</label>
+                    <input type="number" value="5" id="breakTime">
+                </div>
+
+                <div>
+                    <label>long break time:</label>
+                    <input type="number" value="15" id="longBreakTime">
+                </div>
+
+                <!-- WIP <div>
+                    <!-- prototyping in process -->
+                    <!-- <label>alarm volume</label> 
+                    <input type="range" id="volumeSlider"> -->
+                <!-- </div> --> 
+                
+                <div>
+                    <label>dark mode:</label>
+                    <label class="toggle">
+                        <input type="checkbox" id="darkModeToggle" name="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div>
+                    <label>session counter:</label>
+                    <label class="toggle">
+                        <input type="checkbox" id="sessionToggle" name="sessionToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+
+                <button id="saveSettings">apply</button>
+            </div>
+
+                <p id="sessionCounter" hidden></p>
+            </div>
         
-        <!-- settings toggle -->
-        <div class="settings" hidden>
-            
-            <button class="closeBtn" id="closeSettingsBtn">✕</button>
-            
-            <div class="settingsHeader">
-                <h2>settings</h2>
-            </div>
-            
-            <div>
-                <label>focus time:</label>
-                <input type="number" value="25" id="focusTime">
-            </div>
-
-            <div>
-                <label>break time:</label>
-                <input type="number" value="5" id="breakTime">
-            </div>
-
-            <div>
-                <label>long break time:</label>
-                <input type="number" value="15" id="longBreakTime">
-            </div>
-
-            <!-- WIP <div>
-                <!-- prototyping in process -->
-                <!-- <label>alarm volume</label> 
-                <input type="range" id="volumeSlider"> -->
-            <!-- </div> --> 
-            
-            <div>
-                <label>dark mode:</label>
-                <label class="toggle">
-                    <input type="checkbox" id="darkModeToggle" name="darkModeToggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <div>
-                <label>session counter:</label>
-                <label class="toggle">
-                    <input type="checkbox" id="sessionToggle" name="sessionToggle" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-            
-
-            <button id="saveSettings">apply</button>
-        </div>
+    
 
         <!-- sticky note toggle -->
         <button id="sticky">

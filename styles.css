@@ -61,9 +61,6 @@ table {
     --main-color: #8DBB8B;
     --yellow: #feca3cd5;
     --breakRed: #F66267;
-/* F25A5E
-    E6565A
-    F66267 */
 }
 
 /* === BASE === */
@@ -291,9 +288,6 @@ footer{
 }
 
 /* === SETTINGS WINDOW === */
-.settings[hidden] {
-    display: none;
-}
 
 .settings{
     margin-top: 10px;
@@ -304,7 +298,23 @@ footer{
     border-radius: 15px;
     gap: 10px;
     background-color: var(--off-white);
-    opacity: 75%;
+    opacity: 0%;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    border: none;
+}
+
+.settings.open{
+    opacity: .75;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+    max-height: 600px;
+    border: 2px solid var(--text-color);;
 }
 
 .settings > div{

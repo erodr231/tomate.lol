@@ -204,7 +204,7 @@ function showSticky(){
 }
 
 function showSettings(){
-    settingsWin.toggleAttribute("hidden");
+    settingsWin.classList.toggle("open");
 }
 
 function saveSettings(){
