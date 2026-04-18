@@ -11,6 +11,7 @@ const timer = document.getElementById("timer")
 
 const startBtn = document.getElementById("startBtn");
 const timerMode = document.getElementById("mode");
+const skipBtn = document.getElementById("skipBtn");
 const tagline = document.getElementById("tagline")
 
 const timerBtns = document.getElementById("timerBtns");
@@ -90,6 +91,7 @@ function tick(){ // timer logic
 
         if (isBreak){ // if break is over, back to 25 min
             body.classList.remove("breakMode");
+            skipBtn.classList.remove("showSkip"); // remove skip button
             remainingTime = focusTime * 60;
             
             timerMode.textContent = `let's focus!`;
@@ -99,6 +101,8 @@ function tick(){ // timer logic
         } else { // focus is over, 5 min break or 15 minute long break if count == 4 sessions
             count++; // first thing, increment count
             
+            skipBtn.classList.add("showSkip"); // show skip button
+
             // next check if count is 4
             isLongBreak = count % 4 === 0 && count > 0;
             currentBreak = isLongBreak ? longBreakTime : breakTime; // currentBreak determine if it's a long or default break
@@ -250,6 +254,23 @@ function saveSettings(){
 
 }
 
+function skipBreak(){
+    // reset timer, classes
+    clearInterval(timerInterval);
+    body.classList.remove("breakMode");
+    skipBtn.classList.remove("showSkip");
+    svgPause.setAttribute('hidden', '');
+    svgResume.removeAttribute('hidden');
+
+    remainingTime = focusTime * 60;
+    timerMode.textContent = `let's focus!`;
+    timer.textContent = `${focusTime}:00`;
+    
+    isBreak = false;
+    isPaused = true;
+    startTime = null; 
+}
+
 // EVENT LISTENERS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
@@ -261,5 +282,6 @@ stickyClose.addEventListener("click", showSticky);
 settingsBtn.addEventListener("click", showSettings);
 settingsClose.addEventListener("click", showSettings);
 settingsSave.addEventListener("click", saveSettings);
+skipBtn.addEventListener("click", skipBreak)
 
-volumeSlider.addEventListener()
+volumeSlider.addEventListener() // wip
