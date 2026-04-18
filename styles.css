@@ -249,7 +249,7 @@ footer{
 /* === ABOUT === */
 
 .abtImg img{
-    height: 300px;
+    height: 600px;
     width: auto;
 }
 
@@ -257,8 +257,9 @@ footer{
     color: var(--text-color);
     display: flex;
     flex-direction: row; 
-    justify-content: space-evenly;
+    justify-content: center;
     text-align: left;   
+    gap: 5px;
 }
 
 .abtContainer h1{
@@ -272,13 +273,12 @@ footer{
     font-weight: bold;
     font-size: 2rem;
     padding: 5px 0px;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .abtSection{
     display: flex;
     flex-direction: column;
-    gap: 0px;
     max-width: 750px;
 }
 
@@ -476,3 +476,42 @@ body.darkMode textarea::placeholder{
 #skipBtn.showSkip{
     visibility: visible;
 }
+
+/* advanced settings */
+#advancedToggle{
+    font-family: var(--font-secondary);
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+    cursor: pointer;
+    opacity: .90;
+    
+}
+
+#advancedArrow {
+    transition: transform .1s ease;
+}
+
+#advancedSettings{
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity .3s ease;
+    opacity: 0;
+}
+
+#advancedSettings label {
+    font-size: 18px;
+}
+
+#advancedSettings.open{
+    max-height: 300px;
+    opacity: 1;
+}
+
+#advancedToggle.open #advancedArrow{
+    transform: rotate(180deg);
+}
+
+/* style advanced settings */

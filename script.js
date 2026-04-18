@@ -59,6 +59,11 @@ let longBreakTime = 15;
 let currentBreak = breakTime; // this will update depending on count
 let isLongBreak = false; // determines if in long break mode, will change
 
+// advanced settings
+const advancedToggle = document.getElementById("advancedToggle");
+const advancedArrow = document.getElementById("advancedArrow");
+const advancedSettings = document.getElementById("advancedSettings");
+
 
 
 // FUNCTIONS
@@ -271,6 +276,11 @@ function skipBreak(){
     startTime = null; 
 }
 
+function toggleAdvanced(){
+    advancedToggle.classList.toggle("open");
+    advancedSettings.classList.toggle("open");
+}
+
 // EVENT LISTENERS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", toggleTimer);
@@ -283,5 +293,8 @@ settingsBtn.addEventListener("click", showSettings);
 settingsClose.addEventListener("click", showSettings);
 settingsSave.addEventListener("click", saveSettings);
 skipBtn.addEventListener("click", skipBreak)
+
+// advanced setting
+advancedArrow.addEventListener("click", toggleAdvanced);
 
 volumeSlider.addEventListener() // wip
