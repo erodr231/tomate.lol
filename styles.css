@@ -296,7 +296,7 @@ footer{
     display: flex;
     flex-direction: column;
     border: 2px solid var(--text-color);
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 15px;
     gap: 10px;
     background-color: var(--off-white);
@@ -482,11 +482,10 @@ body.darkMode textarea::placeholder{
     font-family: var(--font-primary);
     font-weight: 900;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     font-size: 20px;
     cursor: pointer;
-    opacity: .90;
-    
+    opacity: .90;    
 }
 
 #advancedArrow {
@@ -500,13 +499,16 @@ body.darkMode textarea::placeholder{
     overflow: hidden;
     transition: max-height .3s ease, opacity .3s ease;
     opacity: 0;
+    gap: 10px;
 }
 
 #advancedSettings div{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    justify-content: space-between;
 }
+
 
 #advancedSettings label{
     font-size: 1.1rem;
@@ -536,6 +538,10 @@ body.darkMode textarea::placeholder{
     transform: translateX(21px);
 }
 
+#toggleHeader{
+    align-self: flex-start;
+}
+
 /* volume slider */
 .settings div.volumeSetting{
     display: flex;
@@ -550,4 +556,39 @@ input#volumeSlider{
 
 input[type="range"]{
     accent-color: #2d2d2d;
+}
+
+#fileLabel{
+    padding: 5px;
+    color: #003807;
+    border-radius: 10px;
+    text-decoration: underline;
+
+}
+
+#customAlarm{
+    position: absolute;
+    visibility: hidden;
+}
+
+div.hexPreview{
+    display: flex;
+    gap: 2px !important;
+}
+
+
+#customFocusColor, #customBreakColor{
+    max-width: 33px;
+    min-height: 35px;
+    padding: 0;
+    border: none;
+}
+
+#focusHex, #breakHex{
+    font-family: var(--font-primary);
+    font-weight: 500;
+    max-width: 75px;
+    min-height: 20px;
+    border: 1.5px solid #2d2d2d;
+    padding: 6px;
 }

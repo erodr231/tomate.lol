@@ -175,31 +175,47 @@
                 </div>
                 
                 <div id="advancedToggle">
-                    <span>advanced</span>
-                    <span id="advancedArrow">▾</span>
-                </div>
-
-                <div id="advancedSettings">
-                    <div>
-                        <label>session counter:</label>
-                        <label class="toggle">
-                            <input type="checkbox" id="sessionToggle" name="sessionToggle" checked>
-                            <span class="slider"></span>
-                        </label>
+                    <div id="toggleHeader">
+                        <span>advanced</span>
+                        <span id="advancedArrow">▾</span>
                     </div>
 
-                    <div><!-- file upload -->
-                        <label>custom alarm:</label>
-                        <input type="file" id="customAlarm" accept="audio/*">
+                    <div id="advancedSettings">
+                        <div>
+                            <label>session counter:</label>
+                            <label class="toggle">
+                                <input type="checkbox" id="sessionToggle" name="sessionToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div><!-- file upload -->
+                            <label>custom alarm: </label>
+                            <label id="fileLabel" for="customAlarm">choose a file</label>
+                            <input type="file" id="customAlarm" accept="audio/*"> 
+                        </div>
+
+                        
+                        <div>
+                            <label>focus color:</label>
+                            <div class="hexPreview">
+                                <input type="color" id="customFocusColor" value="#8DBB8B">
+                                <input type="text" id="focusHex" value="#8DBB8B">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>break color:</label>
+                            <div class="hexPreview">
+                                <input type="color" id="customBreakColor" value="#BF616A">
+                                <input type="text" id="breakHex" value="#BF616A">
+                            </div>
+                        </div>
                         
                     </div>
-
-                    <div>
-                        <!-- color -->
-                    </div>
-                   
-                    
                 </div>
+
+                
                 
                 
 

@@ -300,12 +300,14 @@ advancedArrow.addEventListener("click", toggleAdvanced);
 
 volumeSlider.addEventListener("input", function(){
     alarmSound.volume = volumeSlider.value;
+    alarmSound.play();
 });
 
 customAlarmInput.addEventListener("change", function(){
     const file = customAlarmInput.files[0];
+    
     if (files){
-        const url = URL.createObjectURL(file);
+        const url = URL.createObjectURL(file); // replaces default to user's
         alarmSound.src = url;
     }
 });
