@@ -4,6 +4,7 @@
 // audio
 const alarmSound = new Audio('sounds/alarm.mp3');
 let volumeSlider = document.getElementById("volumeSlider");
+const customAlarmInput = document.getElementById("customAlarm");
 
 //html elements
 const body = document.getElementById("body");
@@ -294,7 +295,19 @@ settingsClose.addEventListener("click", showSettings);
 settingsSave.addEventListener("click", saveSettings);
 skipBtn.addEventListener("click", skipBreak)
 
-// advanced setting
+// advanced settings
 advancedArrow.addEventListener("click", toggleAdvanced);
 
-volumeSlider.addEventListener() // wip
+volumeSlider.addEventListener("input", function(){
+    alarmSound.volume = volumeSlider.value;
+});
+
+customAlarmInput.addEventListener("change", function(){
+    const file = customAlarmInput.files[0];
+    if (files){
+        const url = URL.createObjectURL(file);
+        alarmSound.src = url;
+    }
+});
+
+
