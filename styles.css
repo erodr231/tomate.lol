@@ -251,6 +251,7 @@ footer{
 .abtImg img{
     height: 500px;
     width: auto;
+    padding-top: 50px;
 }
 
 .abtContainer {
@@ -334,7 +335,7 @@ footer{
 
 .settings label:first-child{
     text-align: left;
-    width: 195px;
+    /* width: 190px; */
     font-size: 1.3rem;
 }
 
@@ -479,10 +480,11 @@ body.darkMode textarea::placeholder{
 
 /* advanced settings */
 #advancedToggle{
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
+    font-weight: 900;
     display: flex;
     justify-content: flex-start;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     opacity: .90;
     
@@ -501,8 +503,14 @@ body.darkMode textarea::placeholder{
     opacity: 0;
 }
 
-#advancedSettings label {
-    font-size: 18px;
+#advancedSettings div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#advancedSettings label{
+    font-size: 1.1rem;
 }
 
 #advancedSettings.open{
@@ -514,4 +522,18 @@ body.darkMode textarea::placeholder{
     transform: rotate(180deg);
 }
 
+#advancedSettings label.toggle{
+    width: 52px;
+    height: 30px;
+}
+#advancedSettings .slider:before {
+    height: 23px;
+    width: 23px;
+    left: 4px;
+    bottom: 4px;
+}
+
+#advancedSettings input:checked + .slider:before {
+    transform: translateX(21px);
+}
 /* style advanced settings */
