@@ -65,6 +65,13 @@ const advancedToggle = document.getElementById("advancedToggle");
 const advancedArrow = document.getElementById("advancedArrow");
 const advancedSettings = document.getElementById("advancedSettings");
 
+const focusColorPicker = document.getElementById("customFocusColor");
+const focusHexInput = document.getElementById("focusHex");
+const breakColorPicker = document.getElementById("customBreakColor");
+const breakHexInput = document.getElementById("breakHex");
+
+const hexRegex = /^#[0-9A-Fa-f]{6}$/; // hex codes only
+
 
 
 // FUNCTIONS
@@ -309,6 +316,36 @@ customAlarmInput.addEventListener("change", function(){
     if (files){
         const url = URL.createObjectURL(file); // replaces default to user's
         alarmSound.src = url;
+    }
+});
+
+focusColorPicker.addEventListener("input", function(){
+    const color = focusColorPicker.value;
+    focusHexInput.value = color;
+
+    document.documentElement.style.setProperty("--main-color", color);
+});
+
+focusHexInput.addEventListener("input", function(){
+    const val = focusHexInput.value;
+    if (hexRegex.test(val)){ // if hex code is true, do this:
+        focusColorPicker.value = val;
+        document.documentElement.style.setProperty("--main-color", val);
+    } 
+});
+
+breakColorPicker.addEventListener("input", function(){
+    const color = breakColorPicker.value;
+    breakHexInput.value = color;
+
+    document.documentElement.style.setProperty("--breakRed", color);
+});
+
+breakHexInput.addEventListener("input", function(){
+    const val = breakHexInput.value;
+    if (hexRegex.test(val)){
+        breakColorPicker.value = val;
+        document.documentElement.style.setProperty("--breakRed", val);
     }
 });
 

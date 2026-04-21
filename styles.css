@@ -196,7 +196,6 @@ main{
     flex-direction: column;
     padding: 10px;
     background-color: var(--yellow);
-    margin-top: 20px;
 }
 
 .stickyHeader{
@@ -292,11 +291,11 @@ footer{
 /* === SETTINGS WINDOW === */
 
 .settings{
-    margin-top: 10px;
+    margin: 10px 20px;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--text-color);
-    padding: 20px 50px;
+    padding: 20px 30px;
     border-radius: 15px;
     gap: 10px;
     background-color: var(--off-white);
