@@ -314,7 +314,7 @@ footer{
     transform: translateY(0);
     pointer-events: auto;
     visibility: visible;
-    max-height: 600px;
+    max-height: 620px;
     border: 2px solid var(--text-color);;
 }
 
@@ -359,7 +359,7 @@ input#focusTime, input#breakTime, input#longBreakTime{
 #saveSettings{
     all: unset;
     cursor: pointer;
-    border: 2px solid var(--text-color);
+    border: 2px solid #2d2d2d;
     padding: 10px;
     border-radius: 15px;
     margin-top: 5px;
@@ -576,14 +576,14 @@ div.hexPreview{
 }
 
 
-#customFocusColor, #customBreakColor{
+#customFocusColor, #customBreakColor, #textColorPicker{
     max-width: 33px;
     min-height: 35px;
     padding: 0;
     border: none;
 }
 
-#focusHex, #breakHex{
+#focusHex, #breakHex, #textHex{
     font-family: var(--font-primary);
     font-weight: 500;
     max-width: 75px;

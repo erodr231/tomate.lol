@@ -69,6 +69,8 @@ const focusColorPicker = document.getElementById("customFocusColor");
 const focusHexInput = document.getElementById("focusHex");
 const breakColorPicker = document.getElementById("customBreakColor");
 const breakHexInput = document.getElementById("breakHex");
+const textColorPicker = document.getElementById("textColorPicker");
+const textHexInput = document.getElementById("textHex");
 
 const hexRegex = /^#[0-9A-Fa-f]{6}$/; // hex codes only
 
@@ -104,6 +106,8 @@ function tick(){ // timer logic
 
         if (isBreak){ // if break is over, back to 25 min
             body.classList.remove("breakMode");
+            body.style.backgroundColor = focusColorPicker.value;
+            
             skipBtn.classList.remove("showSkip"); // remove skip button
             remainingTime = focusTime * 60;
             
@@ -122,6 +126,7 @@ function tick(){ // timer logic
 
             // if not, 5 min break.
             body.classList.add("breakMode");
+            body.style.backgroundColor = breakColorPicker.value;
             remainingTime = currentBreak * 60;
 
             timerMode.textContent = `take a break!`;
@@ -271,6 +276,8 @@ function skipBreak(){
     // reset timer, classes
     clearInterval(timerInterval);
     body.classList.remove("breakMode");
+    body.style.backgroundColor = focusColorPicker.value;
+
     skipBtn.classList.remove("showSkip");
     svgPause.setAttribute('hidden', '');
     svgResume.removeAttribute('hidden');
@@ -349,4 +356,18 @@ breakHexInput.addEventListener("input", function(){
     }
 });
 
+textColorPicker.addEventListener("input", function(){
+    const color = textColorPicker.value;
+    textHexInput.value = color;
+
+    document.documentElement.style.setProperty("--text-color", color);
+});
+
+textHexInput.addEventListener("input", function(){
+    const val = textHexInput.value;
+    if (hexRegex.test(val)){
+        textColorPicker.value = val;
+        document.documentElement.style.setProperty("--text-color", val);
+    }
+});
 
