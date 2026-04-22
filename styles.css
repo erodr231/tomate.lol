@@ -156,9 +156,9 @@ main{
 /* START BUTTON TRANSITION */
 
 #mode.shrink{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 200;
-    opacity: 78%;
+    opacity: 80%;
 }
 /* button reset */
 #sticky, #startBtn, #timerBtns button, .closeBtn, textarea, #skipBtn{
@@ -187,10 +187,10 @@ main{
 
 /* === TIMER  === */
 #timer{
-    font-size: 7rem;
+    font-size: 7.5rem;
     font-weight: 800;
     color: var(--text-color);
-    padding: 20px 10px;
+    padding: 0px 10px 5px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 

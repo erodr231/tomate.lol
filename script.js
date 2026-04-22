@@ -74,12 +74,13 @@ const textHexInput = document.getElementById("textHex");
 
 const hexRegex = /^#[0-9A-Fa-f]{6}$/; // hex codes only
 
-
+const smallTomate = document.getElementById("smallTomate");
 
 // FUNCTIONS
 function startTimer(){
     tagline.hidden = true;
     timerMode.classList.add("shrink");
+    smallTomate.hidden = false;
     timerBtns.hidden = false
     timer.hidden = false;
     startBtn.hidden = true;
