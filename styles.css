@@ -132,6 +132,20 @@ main{
     margin-top: 60px;
 }
 
+#tomateHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#tomateHeader img{
+    width: auto;
+    height: 65px;
+    padding: 5px;
+    rotate: 25deg;
+}
+
 #mode{
     font-size: 5rem;
     font-weight: bold;
