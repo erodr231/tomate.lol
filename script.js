@@ -322,7 +322,7 @@ volumeSlider.addEventListener("input", function(){
 customAlarmInput.addEventListener("change", function(){
     const file = customAlarmInput.files[0];
     
-    if (files){
+    if (file){
         const url = URL.createObjectURL(file); // replaces default to user's
         alarmSound.src = url;
     }
