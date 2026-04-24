@@ -611,6 +611,7 @@ div.hexPreview{
 }
 
 /* media queries */
+/* tablets and phones */
 @media (max-width: 870px) {
     .abtContainer{
         display: flex;
@@ -623,4 +624,35 @@ div.hexPreview{
         height: 300px;
         padding-top: 0px;
     }
+    
 }
+
+@media (max-width: 480px){
+    #sticky{
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+        align-self: flex-end;
+        margin: 1rem;
+    }
+
+    #mode{
+        font-size: 3rem;
+    }
+
+    #mode.shrink{
+        font-size: 2rem;
+    }
+
+    .settings{
+        margin: 0px 20px;
+        padding: 0px 30px;
+    }
+
+    .settings.open{
+        padding: 20px 30px;
+    }
+
+    
+}
+
