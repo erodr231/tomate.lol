@@ -479,7 +479,7 @@ body.darkMode textarea::placeholder{
     right: -90px;
     cursor: pointer;
     padding: 0;
-    opacity: .90;
+    opacity: .95;
 }
 
 #skipBtn:hover{
