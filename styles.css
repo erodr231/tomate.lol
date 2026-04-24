@@ -527,6 +527,10 @@ body.darkMode textarea::placeholder{
     font-size: 1.1rem;
 }
 
+#fileLabel:hover{
+    cursor: pointer;
+}
+
 #advancedSettings.open{
     max-height: 300px;
     opacity: 1;
