@@ -120,7 +120,7 @@ main{
 #tagline{
     opacity: 75%;
     padding: 10px;
-    font-size: 15px;
+    font-size: 1rem;
     
 }
 
@@ -628,6 +628,10 @@ div.hexPreview{
 }
 
 @media (max-width: 480px){
+    body{
+        max-width: 100%;
+    }
+
     #sticky{
         position: relative;
         bottom: 0px;
