@@ -610,6 +610,11 @@ div.hexPreview{
     padding: 6px;
 }
 
+.underline{
+    color: #003807;
+    text-decoration: underline;
+}
+
 /* media queries */
 /* tablets and phones */
 @media (max-width: 870px) {

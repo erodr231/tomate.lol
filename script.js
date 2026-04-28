@@ -107,7 +107,9 @@ function tick(){ // timer logic
 
         if (isBreak){ // if break is over, back to 25 min
             body.classList.remove("breakMode");
-            body.style.backgroundColor = focusColorPicker.value;
+            if (!body.classList.contains("darkMode")) {
+                body.style.backgroundColor = focusColorPicker.value;
+            }
             
             skipBtn.classList.remove("showSkip"); // remove skip button
             remainingTime = focusTime * 60;
@@ -127,7 +129,9 @@ function tick(){ // timer logic
 
             // if not, 5 min break.
             body.classList.add("breakMode");
-            body.style.backgroundColor = breakColorPicker.value;
+            if (!body.classList.contains("darkMode")) {
+                body.style.backgroundColor = breakColorPicker.value;
+            }
             remainingTime = currentBreak * 60;
 
             timerMode.textContent = `take a break!`;
@@ -278,7 +282,9 @@ function skipBreak(){
     // reset timer, classes
     clearInterval(timerInterval);
     body.classList.remove("breakMode");
-    body.style.backgroundColor = focusColorPicker.value;
+    if (!body.classList.contains("darkMode")) {
+        body.style.backgroundColor = focusColorPicker.value;
+    }   
 
     skipBtn.classList.remove("showSkip");
     svgPause.setAttribute('hidden', '');
